@@ -24,7 +24,7 @@
 
         socket.onmessage = (event) => {
             const message = JSON.parse(event.data);
-            message.username = message.connID
+            message.username = message.sender
             displayMessage(message);
         };
 
