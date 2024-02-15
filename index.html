@@ -11,7 +11,12 @@
     <button onclick="sendMessage()">Send</button>
 
     <script>
-        const socket = new WebSocket("ws://localhost:5000/api/chat/v1/ws");
+        // Generate a UUID
+        const uuid = crypto.randomUUID();
+        console.log(uuid);
+
+        // Construct the API path with the UUID
+        const socket = new WebSocket(`ws://localhost:5000/api/chat/v1/ws/${uuid}`);
 
         socket.onopen = () => {
             console.log("Connected to WebSocket server");
